@@ -1,0 +1,8 @@
+# configuration file for building snapshots and releases with jitpack.io
+jdk:
+  - openjdk17
+before_install:
+  - ./scripts/prepareJitpackEnvironment.sh
+install:
+  - FILE="-Dfile=footprints.aar"
+  - mvn install:install-file $FILE -DgroupId=com.github.sabarishAIT -DartifactId=foot_prints_sdk_sample_publish -Dversion=1.1 -Dpackaging=aar -DgeneratePom=true
